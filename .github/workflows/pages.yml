@@ -29,3 +29,27 @@ jobs:
           path: public
       - uses: actions/deploy-pages@v4
         id: deployment
+      - name: Verify the root homepage entry
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import time
+          from urllib.error import URLError
+          from urllib.request import Request, urlopen
+          expected = Path('public/index.html').read_bytes()
+          url = os.environ['PAGE_URL'] + '?build=' + os.environ['GITHUB_RUN_ID']
+          for attempt in range(12):
+              try:
+                  with urlopen(Request(url, headers={'Cache-Control': 'no-cache'}), timeout=15) as response:
+                      if response.read() == expected:
+                          print('Verified: root domain serves the news homepage entry.')
+                          break
+              except (URLError, TimeoutError) as error:
+                  print('Waiting for Pages: ' + str(error), flush=True)
+              time.sleep(5)
+          else:
+              raise SystemExit('Root domain did not return the current homepage entry.')
+          PY
