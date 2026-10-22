@@ -1,0 +1,465 @@
+{
+  "title": "Claude iOS 逆向与地区风控分析",
+  "version": "1.261019.20",
+  "analysis_date": "2026-10-22",
+  "scope": "静态分析；未运行应用、未抓包、未获取服务端决策记录。",
+  "ipa_sha256": "09739f2ee6122040800c6e7b6d7098d0ffe673c312548b0ebc21c9e76532869e",
+  "main_executable_sha256": "479536c0f4cd14fd223dad99ca004c16cb8f33ef0b727467d54398b470ee4894",
+  "main_executable_bytes": 125167552,
+  "encryption": [
+    {
+      "cryptoff": 16384,
+      "cryptsize": 109051904,
+      "cryptid": 1,
+      "load_command_offset": 5616,
+      "sample_entropy": 7.999831948400603
+    }
+  ],
+  "main_log_template_count": 594,
+  "selected_imports": [
+    {
+      "name": "_$s10Foundation6LocaleV19_bridgeToObjectiveCSo8NSLocaleCyF",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121278200,
+      "string_file_offset": 121605200,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_$s10Foundation6LocaleV36_unconditionallyBridgeFromObjectiveCyACSo8NSLocaleCSgFZ",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121278248,
+      "string_file_offset": 121605349,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_$s10Foundation6LocaleV8LanguageV18characterDirectionSo08NSLocalecE0Vvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121278424,
+      "string_file_offset": 121605858,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSLocaleCountryCode",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 41,
+      "nlist_file_offset": 121397048,
+      "string_file_offset": 121993901,
+      "dependency": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation"
+    },
+    {
+      "name": "_NSLocaleCurrencySymbol",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 41,
+      "nlist_file_offset": 121397064,
+      "string_file_offset": 121993922,
+      "dependency": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation"
+    },
+    {
+      "name": "_NSLocaleLanguageCode",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 41,
+      "nlist_file_offset": 121397080,
+      "string_file_offset": 121993946,
+      "dependency": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_CLGeocoder",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 11,
+      "nlist_file_offset": 121399144,
+      "string_file_offset": 121997687,
+      "dependency": "/System/Library/Frameworks/CoreLocation.framework/CoreLocation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_CLLocationManager",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 11,
+      "nlist_file_offset": 121399176,
+      "string_file_offset": 121997737,
+      "dependency": "/System/Library/Frameworks/CoreLocation.framework/CoreLocation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_CTCarrier",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 6,
+      "nlist_file_offset": 121399464,
+      "string_file_offset": 121998303,
+      "dependency": "/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony"
+    },
+    {
+      "name": "_OBJC_CLASS_$_CTTelephonyNetworkInfo",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 6,
+      "nlist_file_offset": 121399480,
+      "string_file_offset": 121998327,
+      "dependency": "/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony"
+    },
+    {
+      "name": "_OBJC_CLASS_$_DCAppAttestService",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 51,
+      "nlist_file_offset": 121399496,
+      "string_file_offset": 121998364,
+      "dependency": "/System/Library/Frameworks/DeviceCheck.framework/DeviceCheck"
+    },
+    {
+      "name": "_OBJC_CLASS_$_DCDevice",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 51,
+      "nlist_file_offset": 121399512,
+      "string_file_offset": 121998397,
+      "dependency": "/System/Library/Frameworks/DeviceCheck.framework/DeviceCheck"
+    },
+    {
+      "name": "_OBJC_CLASS_$_NSLocale",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 41,
+      "nlist_file_offset": 121401080,
+      "string_file_offset": 122001337,
+      "dependency": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_NSTimeZone",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 41,
+      "nlist_file_offset": 121402040,
+      "string_file_offset": 122003134,
+      "dependency": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation"
+    },
+    {
+      "name": "_$s8StoreKit10StorefrontV11countryCodeSSvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343560,
+      "string_file_offset": 121837673,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit10StorefrontV7currentACSgvgZ",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343576,
+      "string_file_offset": 121837716,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit10StorefrontV7currentACSgvgZTu",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343592,
+      "string_file_offset": 121837757,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit10StorefrontVMa",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343608,
+      "string_file_offset": 121837800,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit10StorefrontVMn",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343624,
+      "string_file_offset": 121837828,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV10originalIDs6UInt64Vvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343640,
+      "string_file_offset": 121837856,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV11environmentAA03AppA0O11EnvironmentVvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343672,
+      "string_file_offset": 121837965,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV13ownershipTypeAC09OwnershipE0Vvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343832,
+      "string_file_offset": 121838542,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV14expirationDate10Foundation0E0VSgvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343848,
+      "string_file_offset": 121838602,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV14revocationDate10Foundation0E0VSgvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343864,
+      "string_file_offset": 121838665,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_$s8StoreKit11TransactionV15appAccountToken10Foundation4UUIDVSgvg",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 24,
+      "nlist_file_offset": 121343880,
+      "string_file_offset": 121838728,
+      "dependency": "/System/Library/Frameworks/StoreKit.framework/StoreKit"
+    },
+    {
+      "name": "_NSHTTPCookieDomain",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396760,
+      "string_file_offset": 121993474,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieExpires",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396776,
+      "string_file_offset": 121993494,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieMaximumAge",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396792,
+      "string_file_offset": 121993515,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieName",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396808,
+      "string_file_offset": 121993539,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookiePath",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396824,
+      "string_file_offset": 121993557,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieSameSitePolicy",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396840,
+      "string_file_offset": 121993575,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieSecure",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396856,
+      "string_file_offset": 121993603,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_NSHTTPCookieValue",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121396872,
+      "string_file_offset": 121993623,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_DCDevice",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 51,
+      "nlist_file_offset": 121399512,
+      "string_file_offset": 121998397,
+      "dependency": "/System/Library/Frameworks/DeviceCheck.framework/DeviceCheck"
+    },
+    {
+      "name": "_OBJC_CLASS_$_NSProcessInfo",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 9,
+      "nlist_file_offset": 121401640,
+      "string_file_offset": 122002399,
+      "dependency": "/System/Library/Frameworks/Foundation.framework/Foundation"
+    },
+    {
+      "name": "_OBJC_CLASS_$_UIDevice",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 2,
+      "nlist_file_offset": 121403432,
+      "string_file_offset": 122005969,
+      "dependency": "/System/Library/Frameworks/UIKit.framework/UIKit"
+    },
+    {
+      "name": "_UIDeviceBatteryLevelDidChangeNotification",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 2,
+      "nlist_file_offset": 121408216,
+      "string_file_offset": 122016767,
+      "dependency": "/System/Library/Frameworks/UIKit.framework/UIKit"
+    },
+    {
+      "name": "_UIDeviceBatteryStateDidChangeNotification",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 2,
+      "nlist_file_offset": 121408232,
+      "string_file_offset": 122016810,
+      "dependency": "/System/Library/Frameworks/UIKit.framework/UIKit"
+    },
+    {
+      "name": "_UIScreenBrightnessDidChangeNotification",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 2,
+      "nlist_file_offset": 121409416,
+      "string_file_offset": 122018875,
+      "dependency": "/System/Library/Frameworks/UIKit.framework/UIKit"
+    },
+    {
+      "name": "_sysctl",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 26,
+      "nlist_file_offset": 121428040,
+      "string_file_offset": 122046630,
+      "dependency": "/usr/lib/libSystem.B.dylib"
+    },
+    {
+      "name": "_sysctlbyname",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 26,
+      "nlist_file_offset": 121428056,
+      "string_file_offset": 122046638,
+      "dependency": "/usr/lib/libSystem.B.dylib"
+    },
+    {
+      "name": "_uname",
+      "type": 1,
+      "section": 0,
+      "address": "0x0",
+      "ordinal": 26,
+      "nlist_file_offset": 121428280,
+      "string_file_offset": 122046843,
+      "dependency": "/usr/lib/libSystem.B.dylib"
+    }
+  ],
+  "sift_license_entry": [
+    {
+      "library_name": "sift-ios",
+      "license": "8c39867af671b7e8c1db5b5472b8ba3bd7515d55f3ca577d98392160dc36e4cd",
+      "url": "https://github.com/SiftScience/sift-ios",
+      "revision": "0eda179a11a781c3b217402a10acbc89fc6043f4"
+    }
+  ],
+  "evidence_grades": {
+    "A": "官方确认用途",
+    "B": "包内静态线索，未证实用于风控",
+    "C": "服务端假设，未恢复规则"
+  },
+  "limitations": [
+    "导入不等于调用或上传",
+    "日志模板不是运行日志",
+    "依赖许可证不等于 SDK 初始化",
+    "未恢复业务调用图或风控阈值",
+    "TOP20 是调查优先级而非封号概率"
+  ],
+  "downloads": {
+    "docx_sha256": "e61acf01abf83ffc8c571e40862c18e233574366cd4944b8304c9f25fafd3fdc",
+    "markdown_sha256": "1cc5f07ecaefcd80055ebba9966466f64c3b1f52f683833b621276ae4d0f57ee"
+  }
+}

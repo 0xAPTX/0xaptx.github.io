@@ -1,4 +1,4 @@
-name: Publish root homepage entry
+name: Publish homepage and research reports
 on:
   push:
     branches: [main]
@@ -29,27 +29,32 @@ jobs:
           path: public
       - uses: actions/deploy-pages@v4
         id: deployment
-      - name: Verify the root homepage entry
+      - name: Verify published pages and report downloads
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           python3 - <<'PY'
           import os
+          import hashlib
           from pathlib import Path
           import time
           from urllib.error import URLError
           from urllib.request import Request, urlopen
-          expected = Path('public/index.html').read_bytes()
-          url = os.environ['PAGE_URL'] + '?build=' + os.environ['GITHUB_RUN_ID']
-          for attempt in range(12):
-              try:
-                  with urlopen(Request(url, headers={'Cache-Control': 'no-cache'}), timeout=15) as response:
-                      if response.read() == expected:
-                          print('Verified: root domain serves the news homepage entry.')
-                          break
-              except (URLError, TimeoutError) as error:
-                  print('Waiting for Pages: ' + str(error), flush=True)
-              time.sleep(5)
-          else:
-              raise SystemExit('Root domain did not return the current homepage entry.')
+          for file in sorted(Path('public').rglob('*')):
+              if not file.is_file() or file.name.startswith('.'):
+                  continue
+              relative = file.relative_to('public').as_posix()
+              expected = hashlib.sha256(file.read_bytes()).hexdigest()
+              url = os.environ['PAGE_URL'] + relative + '?build=' + os.environ['GITHUB_RUN_ID']
+              for attempt in range(12):
+                  try:
+                      with urlopen(Request(url, headers={'Cache-Control': 'no-cache'}), timeout=15) as response:
+                          if hashlib.sha256(response.read()).hexdigest() == expected:
+                              print('Verified: ' + relative, flush=True)
+                              break
+                  except (URLError, TimeoutError) as error:
+                      print('Waiting for Pages: ' + str(error), flush=True)
+                  time.sleep(5)
+              else:
+                  raise SystemExit('Pages did not return the current file: ' + relative)
           PY
